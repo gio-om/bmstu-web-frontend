@@ -31,6 +31,8 @@ const FlightPage = () => {
 
     const [date, setDate] = useState<string>(flight?.date)
 
+    const [is_successful, setIsSuccessful] = useState<string>(flight?.is_successful)
+
     useEffect(() => {
         if (!is_authenticated) {
             navigate("/")
@@ -45,7 +47,8 @@ const FlightPage = () => {
     useEffect(() => {
         setName(flight?.name)
         setDescription(flight?.description)
-        setDate(flight?.date)
+        setDate(flight?.date),
+        setIsSuccessful(flight?.is_successful)
     }, [flight]);
 
     const sendFlight = async (e) => {
@@ -86,14 +89,15 @@ const FlightPage = () => {
 
     const isDraft = flight.status == E_FlightStatus.Draft
     const isCompleted = flight.status == E_FlightStatus.Completed
-
+    
+    //                {isCompleted && <CustomInput label="Дата вылета" value={date} disabled={true}/>}  
     return (
         <Form onSubmit={sendFlight} className="pb-5">
             <h2 className="mb-5">{isDraft ? "Черновой полет" : `Полет №${id}` }</h2>
             <Row className="mb-5 fs-5 w-25">
-                <CustomInput label="Название" placeholder="Введите название" value={name} setValue={setName} disabled={!isDraft}/>
-                <CustomTextarea label="Описание" placeholder="Введите описание" value={description} setValue={setDescription} disabled={!isDraft}/>
-                {isCompleted && <CustomInput label="Дата вылета" value={date} disabled={true}/>}  
+                <CustomInput label="Название мисии" placeholder="Введите название" value={name} setValue={setName} disabled={!isDraft}/>
+                <CustomTextarea label="Цель миссии" placeholder="Введите цель миссии" value={description} setValue={setDescription} disabled={!isDraft}/>
+                {isCompleted && <CustomInput label="Успешное завершение" value={is_successful} disabled={true}/>} 
             </Row>
             <Row>
                 {flight.astronauts.length > 0 ? flight.astronauts.map((astronaut:T_Astronaut) => (

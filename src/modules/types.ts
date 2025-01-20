@@ -20,6 +20,7 @@ export type T_Flight = {
     astronauts: T_Astronaut[]
     name: string
     date: string
+    is_successful: number
 }
 
 export enum E_FlightStatus {
