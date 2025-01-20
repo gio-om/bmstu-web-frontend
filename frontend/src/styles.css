@@ -1,0 +1,38 @@
+:root {
+    --root-bg: #000;
+    --text-color: #fff;
+    --primary-color: #000;
+    --primary-color__hover: #fff;
+
+    --header-bg: #000;
+    --header-color: #fff;
+
+    --card-bg: #000;
+    --card-border-color: #fff;
+    --card-text: #fff;
+
+    --primary-btn-bg: var(--primary-color);
+    --primary-btn-bg--hover: var(--primary-color__hover);
+    --primary-btn-border: #fff;
+    --primary-btn-border--hover: var(--primary-color__hover);
+    --primary-btn-color: #fff;
+    --primary-btn-color--hover: #000;
+
+    --search-bg: var(--primary-color);
+    --search-bg--hover: var(--primary-color__hover);
+    --search-border: #fff;
+    --search-border--hover: var(--primary-color__hover);
+    --search-color: #fff;
+    --search-color--hover: #000;
+}
+
+body {
+    color: var(--text-color) !important;
+    background: var(--root-bg) !important;
+}
+
+.wrapper {
+    color: var(--text-color);
+    background: var(--root-bg);
+    min-height: 100vh;
+}
